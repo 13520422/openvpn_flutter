@@ -49,6 +49,12 @@ public class OpenVPNFlutterPlugin implements FlutterPlugin, ActivityAware {
             vpnHelper.startVPN(config, username, password, name, bypassPackages);
         }
     }
+    public static void disConnectVPN() {
+        if (vpnHelper == null)
+            return;
+
+        vpnHelper.stopVPN();
+    }
 
     @Override
     public void onAttachedToEngine(@NonNull FlutterPluginBinding binding) {
