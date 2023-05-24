@@ -16,6 +16,14 @@ public class SwiftOpenVPNFlutterPlugin: NSObject, FlutterPlugin {
         instance.onRegister(registrar)
         
     }
+    public static func disConnectVPN(){
+        do {
+            try SwiftOpenVPNFlutterPlugin.utils.stopVPN()
+        } catch {
+        // some error
+        }
+        
+    }
     
     public func onRegister(_ registrar: FlutterPluginRegistrar){
         let vpnControlM = FlutterMethodChannel(name: SwiftOpenVPNFlutterPlugin.METHOD_CHANNEL_VPN_CONTROL, binaryMessenger: registrar.messenger())
